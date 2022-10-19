@@ -12,7 +12,6 @@ const setCardType = (type) => {
     default: ["black", "gray"],
     mie: ["#046C7A", "#DF1278"],
   }
-
   ccBgColor01.setAttribute("fill", colors[type][0])
   ccBgColor02.setAttribute("fill", colors[type][1])
   ccLogo.setAttribute("src", `cc-${type}.svg`)
@@ -27,7 +26,6 @@ const securityCode = document.querySelector("#security-code")
 const securityCodePattern = {
   mask: "0000",
 }
-
 const securityCodeMasked = IMask(securityCode, securityCodePattern)
 
 const expirationDate = document.querySelector("#expiration-date")
@@ -48,7 +46,6 @@ const expirationDatePattern = {
 }
 
 const expirationDateMasked = IMask(expirationDate, expirationDatePattern)
-
 const cardNumber = document.querySelector("#card-number")
 
 const cardNumberPattern = {
@@ -78,15 +75,12 @@ const cardNumberPattern = {
     const foundMask = dynamicMasked.compiledMasks.find(({ regex }) =>
       number.match(regex)
     )
-
     return foundMask
   },
 }
 
 const cardNumberMasked = IMask(cardNumber, cardNumberPattern)
-
 const addButton = document.querySelector("#add-card")
-
 addButton.addEventListener('click', () => {
   alert('Cartão adicionado!')
 })
@@ -98,7 +92,6 @@ document.querySelector('form').addEventListener('submit', (event) => {
 const cardHolder = document.querySelector("#card-holder")
 cardHolder.addEventListener('input', () => {
   const ccHolder = document.querySelector('.cc-holder .value')
-
   ccHolder.innerText = cardHolder.value.length === 0 ? 'FULANO DA SILVA' : cardHolder.value
 })
 
